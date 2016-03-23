@@ -1,0 +1,15 @@
+{@each items as it}
+{@if it.leaf == "0"}
+<div data-dojo-type="dijit.PopupMenuBarItem">
+<span>{#it.name}</span>
+<div data-dojo-type="dijit.Menu" id="Menu-{#it.id}">
+</div>
+</div>
+{@else if it.leaf == "1"}
+<div data-dojo-type="dijit.PopupMenuBarItem" data-url="{#it.url}" id="Leaf-{#it.id}">
+<span>{#it.name}</span>
+<div data-dojo-type="dijit.Menu" id="Menu-{#it.id}">
+</div>
+</div>
+{@/if}
+{@/each}

@@ -1,0 +1,18 @@
+{% for it in items %}
+
+{% ifequal it.leaf "0" %}
+<div data-dojo-type="dijit.PopupMenuBarItem">
+<span>{{it.name}}</span>
+<div data-dojo-type="dijit.Menu" id="Menu-{{it.id}}">
+</div>
+</div>
+{% endifequal %}
+{% ifequal it.leaf "1" %}
+<div data-dojo-type="dijit.PopupMenuBarItem" data-url="{{it.url}}" id="Leaf-{{it.id}}">
+<span>{{it.name}}</span>
+<div data-dojo-type="dijit.Menu" id="Menu-{{it.id}}">
+</div>
+</div>
+{% endifequal %}
+
+{% endfor %}
