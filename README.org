@@ -1,0 +1,98 @@
+* 我的 Dojo Toolkit 自定义 widget
+** Dojo Toolkit 是什么？
+dojo 更多的是一个加强的、企业级的应用框架，它提供了更好的 OOP 和框架组织模式，丰富
+的组件库，表格、图表，国际化等，并且可以容易的扩展自定义 widget，当你开发比较复杂
+的 Web 应用程序，你的需求有很多 rich gui widget, 接近企业级界面的话，用 dojo 开发
+会更快，代码量将大幅减少，因此程序的稳定性能保障。
+官网是 http://dojotoolkit.org
+文档也还算丰富，但是快速开发需要熟悉源代码，适合场景是大型复杂的国际化产品，用于
+企业级应用，其实挺好的。不过缺点在于：过于重量级，不适合互联网。
+优点：
+*** 1. 模块化和 AMD 模块加载机制
+随着 web 技术的发展，客户端的 javascript 越来越复杂，为了更好、更快运行我们的 js 应
+用，我们需要模块化我们的程序。Dojo toolkit 一直都引以骄傲他们的模块化设计，使用
+dojo.require 来动态的加载页面资源，可以方便的异步加载所有资源，很大程度的提高了
+速度。
+*** 2. 优秀的 OOP 封装，命名空间和包的管理机制
+*** 3. 使用 dojo/declare 来实现 Class 和扩展性
+javascript 并不是真正的提供 class 系统，而 Dojo toolkit 通过 dojo/declare 提供了一个
+类似 class 继承机制。declare 在整个框架中都被使用，所以开发人员可以：
+- 剪切或者删除重复的代码
+- 使用“混合”方式来在不同 class 中共享功能
+- 很简单的扩展已存在的 class 用来扩展自定义
+- 不同项目中分享模块代码
+另外一个使用 dojo class 系统的优势在于所有属性和方法都是可以自定义的，这里没有
+option 来限制属性自定义的数量。任何东西都可以被修改或者扩展。
+*** 4. 基于方面（Aspects）和“方法到方法的事件”
+Aspects 是高级 web 开发力最强大和必要的特性。Dojo toolkit 提供了很多这样的相关功能。
+允许你不使用传统的 click，mouseover 和 keyup 来触发功能。能够让你在触发 function A
+之后或者之前触发 function B。你可以将方法链接起来。
+Aspect 对于使用 Dijit 来创建高级 UI 非常有帮助。针对事件来监听一个组件或者 class 能够
+触发另外一个组件的变化，允许开发人员通过使用很多小组件来创建一个大的可控制的组件。
+*** 5. Deferreds 和统一的 AJAX 传输
+Deferreds 是基于对象的异步操作的表达方式，允许异步操作对象可以方便的从一个地方传递
+到另外一个地方，使用它来简化 AJAX 高级操作，动画及其它。
+*** 6. Dijit UI framework
+Dojo toolkit 相比其它框架最大的优势在于 Dijit UI 框架。这个和其它工具吹嘘的完全不同：
+完整，完整的支持本地化
+完整的 accessiblity
+先进的布局组件能够帮助你解决 100%高度元素，创建自定义的分割和布局修改
+内建的表单验证和强化的用户体验
+很多主题，最新的叫"claro"
+LESS 文件自定义主题
+非常模块化的代码，允许自定义和扩展
+提供了完善的 widget 库，甚至有 aspectj 的功能。
+*** 7. Dojo Mobile
+可以这么说，基本上每一个 web 问题，dojo 都有一个解决方案，Dojo toolkit 对于移动客户端
+的解决方案就是 dojox/mobile。
+如果你想看看 dojox/mobile 开发的 UI 界面，请点击这里：[[http://www.gbtags.com/technology/democenter/20120814-dojo-mobile/index.html][在线演示]]
+dojox/mobile 主要特性如下：
+- 自动探测设备类型
+- 拥有 iOS，Andriod，Blackberry 和 common 这四种主题
+- mobile 表单组件
+- 布局组件和面板
+
+Mobile 视图可以滞后加载并且不同的视图都是无缝切换。
+使用移动的组件和使用 Dijit 的方法非常类似。而且整个过程非常简单！
+*** 8. GFX 和图表
+CSS 动画是不错的视觉工具，既是动画图片，同时也是灵活和强大的矢量图形创建和管理工具。
+最流行的客户端的矢量图形生成工具一直是 Raphael JS，但是 Dojo toolkit 的 GFX 类库毫无
+疑问更将的强大。GFX 可以用来配置 SVG，VML，Silverlight，Canvas 和 webGL 格式的矢量图
+形。提供了一个健壮的封装来创建不同的矢量图片形状（线状图等等），包括：
+- 改变大小，旋转和偏转
+- 动画填入，拉直等属性
+- 添加线或者圆圈图形到指定图形中
+- 监听和响应鼠标属性
+- 组合图形并且更好的去管理
+
+基于 GFX 的强大类库就是 dojox/charting。通过图表来展示视觉化的数据是非常不错的选择。
+dojox/charting 提供了如下功能：
+- 多个图表
+- 动画图形元素
+- 插件支持，包括 MoveSlice（动画饼图），提示工具条，缩放和高亮
+- 自更新的图表，由 Dojo data store 支持
+*** 9. Gridx
+全功能 Grid widget，使用更快，可扩展并且可编辑，主要特性如下：
+- 支持不同的主题，配置简单
+- 支持列宽改变
+- 支持拖放移动
+- 行可排序
+- 允许“延迟加载”grid 数据
+- 支持树状的 Grid
+- 使用 Dijit widget 支持可编辑的 Grid
+- 可扩展
+*** 10. DOH 测试框架
+测试对于我们来说非常重要，特别是对于客户端而非服务器端的程序来说。随着不同的浏览
+器的出现，客户端的互动测试成为一个必须的内容和步骤。Dojo toolkit 提供了自己的测试
+框架。别名 DOH（Dojo objective Harness）。提供了每一个 Dojo toolkit 版本的下载。
+如果面对更复杂的情况，例如，异步操作。比如是 AJAX 请求，DOH 提供了一个非常简单的方式
+来测试。
+*** 11. Dojo 编译流程
+当一个 web 应用准备部署时，对于创建一个压缩版的 javascript 对于加载速度和优化来说非
+常有必要。这有效的减少了请求次数，并且缩短了下载时间。Dojo 的编译分析 Define 将调用
+并且检测依赖关系。使用 Dojo toolkit 编译流程，你需要创建一个 build profile。
+Build profile 通过命令行来运行（最近为 Node.js 重写），提供了不同的选项来重写或者完
+成设置。Dojo 编译流程可自定义，Dojo 编译流提供了超棒的控制编辑文件的功能，帮助你压
+缩 CSS 和 Javascript，这样你的 Dojo程序将能够随时准备上线！
+*** 12. Dojox : Dojo的宝藏
+这里有很多的Dojo toolkit类库供你使用，相信你能找到你需要的所有功能。
